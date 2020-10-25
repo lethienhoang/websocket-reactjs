@@ -5,9 +5,11 @@ const roomReducer =(state={hasJoinedRoom: false}, action) => {
         case ASSIGNED_ROOM_REQUEST:
             return {loading: true}
         case ASSIGNED_ROOM_SUCCESS:
-            return {loading: false, hasJoinedRoom: action.payload }
+            return {loading: false, hasJoinedRoom: action.payload}
         case ASSIGNED_ROOM_FAIL:
-            return {loading: false, error: action.payload}
+            return {loading: false, error: error.message}
+        default:
+            return state;
     }
 }
 

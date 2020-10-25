@@ -9,9 +9,11 @@ const peopleReducer = (state = { peoples: [] }, action) => {
     case PEOPLE_LIST_REQUEST:
       return { loading: true };
     case PEOPLE_LIST_SUCCESS:
-      return { loading: false, peoples: action.payload };
+      return { loading: false, peoples: [...peoples, action.payload] };
     case PEOPLE_LIST_FAIL:
       return { loading: false, error: action.payload };
+    default:
+      return state;
   }
 };
 
